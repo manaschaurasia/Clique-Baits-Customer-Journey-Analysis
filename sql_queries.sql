@@ -80,6 +80,32 @@ ORDER BY 2 DESC
 LIMIT 3;
 
 
+/* 8 */
+
+SELECT 
+    p.product_category,
+    COUNT(CASE
+        WHEN e.event_type = 1 THEN e.visit_id
+    END) AS pg_view,
+    COUNT(CASE
+        WHEN e.event_type = 2 THEN e.visit_id
+    END) AS cart
+FROM
+    events e
+        LEFT JOIN
+    page_hierarchy p ON e.page_id = p.page_id
+        LEFT JOIN
+    event_identifier i ON e.event_type = i.event_type
+WHERE
+    p.product_category IS NOT NULL
+GROUP BY 1
+ORDER BY 2 DESC;
+
+
+
+
+
+
 
 
 
