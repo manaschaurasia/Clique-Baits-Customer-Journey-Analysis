@@ -19,7 +19,8 @@ WITH cte AS
 SELECT ROUND(avg(cnt),2 ) as AVG_Cookie_Per_User FROM cte;
 
 
-/* 3 */
+/* 3. What is the unique number of visits by all users per month? */
+
 SELECT 
     MONTH(e.event_time) AS Month_Num,
     MONTHNAME(e.event_time) AS Month_Name,
