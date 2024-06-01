@@ -32,7 +32,9 @@ FROM
 GROUP BY 1 , 2
 ORDER BY 1;
 
-/* 4 */
+
+/* 4. What is the number of events for each event type? */
+
 SELECT 
     e.event_type, ei.event_name, COUNT(e.visit_id)
 FROM
@@ -41,7 +43,8 @@ FROM
     event_identifier ei ON e.event_type = ei.event_type
 GROUP BY e.event_type , ei.event_name;
 
-/* 5 */
+
+/* 5. What is the percentage of visits which have a purchase event? */
 
 SELECT 
     ROUND(((SELECT 
@@ -57,8 +60,9 @@ SELECT
                     event_type = 1)) * 100,
             2) AS Purchase_percentage;
 
-/* 6 */ 
 
+/* 6. What is the percentage of visits which view the checkout page but do not have a purchase event? */
+ 
 WITH cte AS
 (
 SELECT 
@@ -72,7 +76,7 @@ SELECT COUNT(check_out) AS Total_viewed_checkout,
     FROM cte;
 
 
-/* 7 */
+/* 7. What are the top 3 pages by number of views? */
 
 SELECT 
     p.page_name, COUNT(e.page_id) AS Num_of_visits
@@ -85,7 +89,7 @@ ORDER BY 2 DESC
 LIMIT 3;
 
 
-/* 8 */
+/* 8. What is the number of views and cart adds for each product category? */
 
 SELECT 
     p.product_category,
