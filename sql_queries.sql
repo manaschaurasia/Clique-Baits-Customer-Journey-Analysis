@@ -111,6 +111,34 @@ GROUP BY 1
 ORDER BY 2 DESC;
 
 
+/* 9. What are the top 3 products by purchases? */
+
+WITH cte AS (
+  SELECT DISTINCT visit_id AS purchase_id
+  FROM events 
+  WHERE event_type = 3
+),
+cte2 AS (
+  SELECT 
+    p.page_name,
+    p.page_id,
+    e.visit_id 
+  FROM events e
+  LEFT JOIN page_hierarchy p ON p.page_id = e.page_id
+  WHERE p.product_id IS NOT NULL 
+    AND e.event_type = 2
+)
+SELECT 
+  page_name as Product,
+  COUNT(*) AS Quantity_Purchased
+FROM cte 
+LEFT JOIN cte2 ON visit_id = purchase_id 
+GROUP BY 1
+ORDER BY 2 DESC
+LIMIT 3
+;
+
+
 
 
 
