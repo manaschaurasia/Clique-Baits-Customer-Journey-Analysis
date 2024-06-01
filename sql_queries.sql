@@ -7,7 +7,9 @@ SELECT
 FROM
     users;
 
-/* 2 */
+
+/* 2. How many cookies does each user have on average? */
+
 WITH cte AS
 (
  SELECT user_id, COUNT(cookie_id) as cnt
@@ -15,6 +17,7 @@ WITH cte AS
  GROUP BY user_id
  )
 SELECT ROUND(avg(cnt),2 ) as AVG_Cookie_Per_User FROM cte;
+
 
 /* 3 */
 SELECT 
