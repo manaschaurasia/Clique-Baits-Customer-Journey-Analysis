@@ -1,6 +1,5 @@
 USE clique_bait;
 
-
 /* Digital Analysis */
 /* 1. How many users are there? */
 
@@ -179,6 +178,61 @@ COUNT(purr) as Purchase
 FROM cte2 left join cte3 on cart = purr
 GROUP BY page_name
 ORDER BY 5 Desc;
+
+
+/* Create another table which further aggregates the data for the above points(refer to previous question) but this time for each product category instead of individual products. */
+
+Create Table product_category_info as
+WITH cte as
+(
+SELECT 
+e.visit_id, e.event_type,e.page_id, p.page_name, p.product_id,p.product_category
+FROM events e INNER JOIN page_hierarchy p 
+ON e.page_id = p.page_id
+),
+cte2 as 
+(
+SELECT product_category,
+CASE WHEN event_type =1 then visit_id end as pg_view,
+CASE WHEN event_type =2 then visit_id end as cart
+FROM cte 
+WHERE product_category is not null
+),
+cte3 as
+(
+SELECT visit_id as purr 
+FROM events where event_type = 3 
+)
+SELECT 
+product_category as Product_Category,
+COUNT(pg_view) as Page_Views,
+COUNT(cart) as Added_to_cart,
+(COUNT(cart) - COUNT(purr)) as Abandoned,
+COUNT(purr) as Purchase
+FROM cte2 LEFT JOIN cte3
+ON cart = purr
+GROUP BY 1;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
