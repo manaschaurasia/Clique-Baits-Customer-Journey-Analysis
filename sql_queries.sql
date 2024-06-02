@@ -1,5 +1,7 @@
 USE clique_bait;
 
+
+## Digital Analysis
 /* 1. How many users are there? */
 
 SELECT 
