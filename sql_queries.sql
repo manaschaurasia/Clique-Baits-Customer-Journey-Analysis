@@ -149,6 +149,36 @@ How many times was each product added to cart?
 How many times was each product added to a cart but not purchased (abandoned)?
 How many times was each product purchased? */
 
+CREATE TABLE product_info as
+WITH cte as (
+SELECT 
+e.visit_id, e.cookie_id,e.page_id, e.event_type ,p.page_name,p.product_category,p.product_id
+FROM events e
+INNER JOIN page_hierarchy p
+ON e.page_id = p.page_id
+),
+cte2 as
+(
+SELECT page_name , 
+CASE WHEN event_type = 1 then visit_id end as pg_view,
+ CASE WHEN event_type = 2 then visit_id end  as cart
+FROM cte
+WHERE product_id is not null
+),
+cte3 as 
+(
+SELECT visit_id as purr 
+FROM events where event_type = 3 
+)
+SELECT 
+page_name , 
+COUNT(pg_view) as Page_Views,
+COUNT(cart) as Added_to_cart,
+(COUNT(cart) - COUNT(purr)) as Abandoned,
+COUNT(purr) as Purchase
+FROM cte2 left join cte3 on cart = purr
+GROUP BY page_name
+ORDER BY 5 Desc;
 
 
 
