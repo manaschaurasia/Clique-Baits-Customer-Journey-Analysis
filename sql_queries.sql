@@ -226,7 +226,13 @@ SELECT page_name as Most_Purchased FROM product_info
 WHERE  Purchase = (SELECT MAX(Purchase) FROM product_info);
 
 
+/* 4. Which product was most likely to be abandoned? */
 
+SELECT page_name as Most_likely_abondoned FROM product_info
+WHERE  Abandoned = (SELECT MAX(Abandoned) FROM product_info);
+
+
+/* 5. 
 
 
 
