@@ -288,6 +288,67 @@ FROM product_info )
 SELECT ROUND(avg(conversion_rate),2) FROM cte;
 
 
+/* Campaign Analysis */
+/* Generate a table that has 1 single row for every unique visit_id record and has the following columns:
+1. user_id
+2. visit_id
+3. visit_start_time: the earliest event_time for each visit
+4. page_views: count of page views for each visit
+5. cart_adds: count of product cart add events for each visit
+6. purchase: 1/0 flag if a purchase event exists for each visit
+7. campaign_name: map the visit to a campaign if the visit_start_time falls between the start_date and end_date
+8. impression: count of ad impressions for each visit
+9. click: count of ad clicks for each visit */
+
+WITH cte as
+(
+SELECT 
+    user_id,
+    visit_id,
+    MIN(e.event_time) AS visit_start_time,
+    COUNT(CASE
+        WHEN event_type = 1 THEN visit_id
+    END) AS Page_views,
+    COUNT(CASE
+        WHEN event_type = 2 THEN visit_id
+    END) AS Cart_adds,
+    COUNT(CASE
+        WHEN event_type = 3 THEN visit_id
+    END) AS Purchase,
+    COUNT(CASE
+        WHEN e.event_type = 4 THEN e.visit_id
+    END) AS Impression,
+    COUNT(CASE
+        WHEN e.event_type = 5 THEN e.visit_id
+    END) AS Click
+FROM
+    users u
+        INNER JOIN
+    events e ON u.cookie_id = e.cookie_id	
+GROUP BY 1,2
+)
+
+SELECT 
+    user_id,
+    visit_id,
+    visit_start_time,
+    Page_views,
+    Cart_adds,
+    Purchase,
+    Impression,
+    Click,
+    CASE
+        WHEN visit_start_time BETWEEN ci.start_date AND ci.end_date THEN ci.campaign_name
+    END AS Campaign_name
+FROM
+    cte
+        JOIN
+    campaign_identifier ci ON visit_start_time BETWEEN ci.start_date AND ci.end_date
+        JOIN
+    page_hierarchy p ON page_id = p.page_id
+ORDER BY 1 , 2;
+        
+       
 
 
 
