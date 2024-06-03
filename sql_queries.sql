@@ -216,14 +216,35 @@ GROUP BY 1;
 
 /* 3. Which product had the most views, cart adds and purchases? */
 
-SELECT page_name as Most_Viewed FROM product_info
-WHERE  Page_Views = (SELECT MAX(Page_Views) FROM product_info);
+SELECT 
+    page_name AS Most_Viewed
+FROM
+    product_info
+WHERE
+    Page_Views = (SELECT 
+            MAX(Page_Views)
+        FROM
+            product_info);
 
-SELECT page_name as Most_Cart_adds FROM product_info
-WHERE  Added_to_cart = (SELECT MAX(Added_to_cart) FROM product_info);
+SELECT 
+    page_name AS Most_Cart_adds
+FROM
+    product_info
+WHERE
+    Added_to_cart = (SELECT 
+            MAX(Added_to_cart)
+        FROM
+            product_info);
 
-SELECT page_name as Most_Purchased FROM product_info
-WHERE  Purchase = (SELECT MAX(Purchase) FROM product_info);
+SELECT 
+    page_name AS Most_Purchased
+FROM
+    product_info
+WHERE
+    Purchase = (SELECT 
+            MAX(Purchase)
+        FROM
+            product_info);
 
 
 /* 4. Which product was most likely to be abandoned? */
@@ -247,6 +268,9 @@ FROM
     product_info
 ORDER BY 2 DESC
 LIMIT 1;
+
+
+/* 6. What is the average conversion rate from view to cart add? */
 
 
 
