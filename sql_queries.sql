@@ -272,8 +272,20 @@ LIMIT 1;
 
 /* 6. What is the average conversion rate from view to cart add? */
 
+WITH cte as 
+( SELECT * , ROUND( (Added_to_cart/Page_Views)*100 , 2) as conversion_rate
+FROM product_info )
+
+SELECT ROUND(AVG(conversion_rate),2) from cte;
 
 
+/* 7. What is the average conversion rate from cart add to purchase? */
+
+WITH cte as 
+( SELECT * , ROUND( (Purchase/Added_to_cart)*100 , 2) as conversion_rate
+FROM product_info )
+
+SELECT ROUND(avg(conversion_rate),2) FROM cte;
 
 
 
