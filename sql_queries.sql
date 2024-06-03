@@ -151,33 +151,54 @@ How many times was each product purchased? */
 CREATE TABLE product_info as
 WITH cte as (
 SELECT 
-e.visit_id, e.cookie_id,e.page_id, e.event_type ,p.page_name,p.product_category,p.product_id
-FROM events e
-INNER JOIN page_hierarchy p
-ON e.page_id = p.page_id
+    e.visit_id,
+    e.cookie_id,
+    e.page_id,
+    e.event_type,
+    p.page_name,
+    p.product_category,
+    p.product_id
+FROM
+    events e
+        INNER JOIN
+    page_hierarchy p ON e.page_id = p.page_id
 ),
 cte2 as
 (
-SELECT page_name , 
-CASE WHEN event_type = 1 then visit_id end as pg_view,
- CASE WHEN event_type = 2 then visit_id end  as cart
-FROM cte
-WHERE product_id is not null
+SELECT 
+    page_name,
+    CASE
+        WHEN event_type = 1 THEN visit_id
+    END AS pg_view,
+    CASE
+        WHEN event_type = 2 THEN visit_id
+    END AS cart
+FROM
+    cte
+WHERE
+    product_id IS NOT NULL
 ),
 cte3 as 
 (
-SELECT visit_id as purr 
-FROM events where event_type = 3 
+SELECT 
+    visit_id AS purr
+FROM
+    events
+WHERE
+    event_type = 3
 )
 SELECT 
-page_name , 
-COUNT(pg_view) as Page_Views,
-COUNT(cart) as Added_to_cart,
-(COUNT(cart) - COUNT(purr)) as Abandoned,
-COUNT(purr) as Purchase
-FROM cte2 left join cte3 on cart = purr
+    page_name,
+    COUNT(pg_view) AS Page_Views,
+    COUNT(cart) AS Added_to_cart,
+    (COUNT(cart) - COUNT(purr)) AS Abandoned,
+    COUNT(purr) AS Purchase
+FROM
+    cte2
+        LEFT JOIN
+    cte3 ON cart = purr
 GROUP BY page_name
-ORDER BY 5 Desc;
+ORDER BY 5 DESC;
 
 
 /* 2. Create another table which further aggregates the data for the above points(refer to previous question) but this time for each product category instead of individual products. */
@@ -186,31 +207,51 @@ Create Table product_category_info as
 WITH cte as
 (
 SELECT 
-e.visit_id, e.event_type,e.page_id, p.page_name, p.product_id,p.product_category
-FROM events e INNER JOIN page_hierarchy p 
-ON e.page_id = p.page_id
+    e.visit_id,
+    e.event_type,
+    e.page_id,
+    p.page_name,
+    p.product_id,
+    p.product_category
+FROM
+    events e
+        INNER JOIN
+    page_hierarchy p ON e.page_id = p.page_id
 ),
 cte2 as 
 (
-SELECT product_category,
-CASE WHEN event_type =1 then visit_id end as pg_view,
-CASE WHEN event_type =2 then visit_id end as cart
-FROM cte 
-WHERE product_category is not null
+SELECT 
+    product_category,
+    CASE
+        WHEN event_type = 1 THEN visit_id
+    END AS pg_view,
+    CASE
+        WHEN event_type = 2 THEN visit_id
+    END AS cart
+FROM
+    cte
+WHERE
+    product_category IS NOT NULL
 ),
 cte3 as
 (
-SELECT visit_id as purr 
-FROM events where event_type = 3 
+SELECT 
+    visit_id AS purr
+FROM
+    events
+WHERE
+    event_type = 3
 )
 SELECT 
-product_category as Product_Category,
-COUNT(pg_view) as Page_Views,
-COUNT(cart) as Added_to_cart,
-(COUNT(cart) - COUNT(purr)) as Abandoned,
-COUNT(purr) as Purchase
-FROM cte2 LEFT JOIN cte3
-ON cart = purr
+    product_category AS Product_Category,
+    COUNT(pg_view) AS Page_Views,
+    COUNT(cart) AS Added_to_cart,
+    (COUNT(cart) - COUNT(purr)) AS Abandoned,
+    COUNT(purr) AS Purchase
+FROM
+    cte2
+        LEFT JOIN
+    cte3 ON cart = purr
 GROUP BY 1;
 
 
