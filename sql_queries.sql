@@ -141,7 +141,7 @@ LIMIT 3
 
 
 /* Product Funnel Analysis */
-/* Using a single SQL query - create a new output table which has the following details:
+/* 1. Using a single SQL query - create a new output table which has the following details:
 
 How many times was each product viewed?
 How many times was each product added to cart?
@@ -180,7 +180,7 @@ GROUP BY page_name
 ORDER BY 5 Desc;
 
 
-/* Create another table which further aggregates the data for the above points(refer to previous question) but this time for each product category instead of individual products. */
+/* 2. Create another table which further aggregates the data for the above points(refer to previous question) but this time for each product category instead of individual products. */
 
 Create Table product_category_info as
 WITH cte as
@@ -213,6 +213,17 @@ FROM cte2 LEFT JOIN cte3
 ON cart = purr
 GROUP BY 1;
 
+
+/* 3. Which product had the most views, cart adds and purchases? */
+
+SELECT page_name as Most_Viewed FROM product_info
+WHERE  Page_Views = (SELECT MAX(Page_Views) FROM product_info);
+
+SELECT page_name as Most_Cart_adds FROM product_info
+WHERE  Added_to_cart = (SELECT MAX(Added_to_cart) FROM product_info);
+
+SELECT page_name as Most_Purchased FROM product_info
+WHERE  Purchase = (SELECT MAX(Purchase) FROM product_info);
 
 
 
