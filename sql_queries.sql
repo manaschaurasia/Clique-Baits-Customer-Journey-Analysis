@@ -4,7 +4,7 @@ USE clique_bait;
 /* 1. How many users are there? */
 
 SELECT 
-    COUNT(DISTINCT user_id)
+    COUNT(DISTINCT user_id) as Total_Users
 FROM
     users;
 
