@@ -8,15 +8,15 @@ Clique Bait isn't just your average online seafood store. Founded by Danny, a fo
 ## 🗂️ Available Data
 We utilize five datasets to address various questions and perform comprehensive analyses. These datasets include:
 
-* Users: Contains information about customers tagged via their cookie_id.
+* Users Table : Contains information about customers tagged via their cookie_id.
 
-* Events: Logs customer visits and actions on the Clique Bait website.
+* Events Tables : Logs customer visits and actions on the Clique Bait website.
 
-* Event Identifier: Describes the types of events captured by the digital data systems.
+* Event Identifier Table : Describes the types of events captured by the digital data systems.
 
-* Campaign Identifier: Details information about the campaigns run on the website in 2020.
+* Campaign Identifier Table : Details information about the campaigns run on the website in 2020.
 
-* Page Hierarchy: Lists all the pages on the Clique Bait website along with their product categories.
+* Page Hierarchy Table : Lists all the pages on the Clique Bait website along with their product categories.
 
 ## 🔍 Key Analyses
 Digital Advertising Trends Analysis: Examine digital advertising trends within a specific region, with a focus on the travel industry, to identify emerging patterns and strategic opportunities.
