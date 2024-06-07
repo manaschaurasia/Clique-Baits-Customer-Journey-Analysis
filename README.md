@@ -28,5 +28,5 @@ Our analysis involves a series of SQL queries designed to extract meaningful ins
 * Comparing product category performance.
   
 ## 🤝 Contributing
-We welcome contributions from the community! If you have any ideas, improvements, or additional analyses, feel free to submit a pull request. Together, we can enhance our understanding of the digital advertising landscape in the seafood industry.
+We welcome contributions from the community! If you have any ideas, improvements, or additional analyses, feel free to submit a pull request. Together, we can enhance our understanding of analytics landscape in the ecommerce industry.
 
