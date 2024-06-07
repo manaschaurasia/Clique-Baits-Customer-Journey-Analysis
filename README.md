@@ -24,7 +24,7 @@ Ad Strategy: Evaluate ad revenue, market share, and the current/future tools and
 Competitor Research: Perform an in-depth analysis of major players in the travel industry to understand their advertising strategies and revenue mechanisms.
 Strategic Planning: Provide strategic recommendations for investment areas within the digital advertising space.
 Presentation & Public Speaking: Develop engaging presentation decks and video recordings to showcase actionable insights for informed decision-making.
-📝 SQL Queries
+## 📝 SQL Queries
 Our analysis involves a series of SQL queries designed to extract meaningful insights from the data. Here are some key queries used in this project:
 
 Identifying funnel fallout rates.
