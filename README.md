@@ -6,14 +6,19 @@ Welcome to the Clique Bait Data Analytics project! This repository is dedicated 
 Clique Bait isn't just your average online seafood store. Founded by Danny, a former digital data analytics expert, Clique Bait combines the worlds of seafood and data to deliver unique insights into customer behavior and digital marketing strategies. This project supports Danny’s vision by analyzing the store's dataset and uncovering actionable insights.
 
 ## 🗂️ Available Data
-For this case study, we utilize five datasets to address various questions and perform comprehensive analyses. These datasets include:
+We utilize five datasets to address various questions and perform comprehensive analyses. These datasets include:
 
-Users: Contains information about customers tagged via their cookie_id.
-Events: Logs customer visits and actions on the Clique Bait website.
-Event Identifier: Describes the types of events captured by the digital data systems.
-Campaign Identifier: Details information about the campaigns run on the website in 2020.
-Page Hierarchy: Lists all the pages on the Clique Bait website along with their product categories.
-🔍 Key Analyses
+* Users: Contains information about customers tagged via their cookie_id.
+
+* Events: Logs customer visits and actions on the Clique Bait website.
+
+* Event Identifier: Describes the types of events captured by the digital data systems.
+
+* Campaign Identifier: Details information about the campaigns run on the website in 2020.
+
+* Page Hierarchy: Lists all the pages on the Clique Bait website along with their product categories.
+
+## 🔍 Key Analyses
 Digital Advertising Trends Analysis: Examine digital advertising trends within a specific region, with a focus on the travel industry, to identify emerging patterns and strategic opportunities.
 Ad Strategy: Evaluate ad revenue, market share, and the current/future tools and capabilities within the digital advertising landscape.
 Competitor Research: Perform an in-depth analysis of major players in the travel industry to understand their advertising strategies and revenue mechanisms.
