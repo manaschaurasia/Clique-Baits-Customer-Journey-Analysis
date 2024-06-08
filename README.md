@@ -18,7 +18,7 @@ We utilize five datasets to address various questions and perform comprehensive 
 
 * Page Hierarchy Table : Lists all the pages on the Clique Bait website along with their product categories.
 
-### 🔍 Key Analyses
+## 🔍 Key Analyses
 Our analysis involves a series of SQL queries designed to extract meaningful insights from the data. Here are some key queries used in this project:
 
 * Identifying funnel fallout rates.
