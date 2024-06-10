@@ -30,3 +30,8 @@ Our analysis involves a series of SQL queries designed to extract meaningful ins
 ## 🤝 Contributing
 We welcome contributions from the community! If you have any ideas, improvements, or additional analyses, feel free to submit a pull request. Together, we can enhance our understanding of analytics landscape in the ecommerce industry.
 
+## 🔗 Links
+[![project link]
+
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/manaschaurasia/)
+
