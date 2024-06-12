@@ -37,7 +37,7 @@ ORDER BY 1;
 /* 4. What is the number of events for each event type? */
 
 SELECT 
-    e.event_type, ei.event_name, COUNT(e.visit_id)
+    e.event_type, ei.event_name, COUNT(e.visit_id) as counts
 FROM
     events e
         INNER JOIN
