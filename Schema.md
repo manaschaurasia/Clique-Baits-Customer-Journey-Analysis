@@ -8,9 +8,9 @@ Contains information about customers who visit the Clique Bait website, tagged v
 | `cookie_id` | Identifier for tracking user activity       | STRING     |
 | `start_date`| Date when the user first visited            | TIMESTAMP  |
 
+
 ## Events Table
 Logs customer visits at a cookie_id level, including event type and page visited. The sequence_number orders the events within each visit.
-
 
 | Column           | Description                                                | Data Type  |
 |------------------|------------------------------------------------------------|------------|
@@ -20,20 +20,21 @@ Logs customer visits at a cookie_id level, including event type and page visited
 | `event_type`     | Type of event (e.g., Page View, Add to Cart)               | INTEGER    |
 | `sequence_number`| Order of the events within each visit                      | INTEGER    |
 | `event_time`     | Timestamp of the event                                     | TIMESTAMP  |
-Event Identifier Table
+
+
+## Event Identifier Table
 Shows the types of events captured by Clique Bait’s digital data systems.
 
-markdown
-Copy code
 | Column       | Description                                | Data Type  |
 |--------------|--------------------------------------------|------------|
 | `event_type` | Unique identifier for the event type       | INTEGER    |
 | `event_name` | Name of the event (e.g., Page View, Add to Cart) | STRING     |
-Campaign Identifier Table
+
+
+## Campaign Identifier Table
 Provides information on the marketing campaigns run on the Clique Bait website in 2020.
 
-markdown
-Copy code
+
 | Column         | Description                                 | Data Type  |
 |----------------|---------------------------------------------|------------|
 | `campaign_id`  | Unique identifier for the campaign          | INTEGER    |
@@ -41,11 +42,12 @@ Copy code
 | `campaign_name`| Name of the campaign                        | STRING     |
 | `start_date`   | Campaign start date                         | TIMESTAMP  |
 | `end_date`     | Campaign end date                           | TIMESTAMP  |
-Page Hierarchy Table
+
+
+## Page Hierarchy Table
 Lists all pages on the Clique Bait website tagged for data collection through user interaction events.
 
-markdown
-Copy code
+
 | Column            | Description                                  | Data Type  |
 |-------------------|----------------------------------------------|------------|
 | `page_id`         | Unique identifier for the page               | INTEGER    |
