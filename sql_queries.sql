@@ -317,7 +317,7 @@ WITH cte as
 ( SELECT * , ROUND( (Added_to_cart/Page_Views)*100 , 2) as conversion_rate
 FROM product_info )
 
-SELECT ROUND(AVG(conversion_rate),2) from cte;
+SELECT ROUND(AVG(conversion_rate),2) as Conversion_rate from cte;
 
 
 /* 7. What is the average conversion rate from cart add to purchase? */
@@ -326,8 +326,7 @@ WITH cte as
 ( SELECT * , ROUND( (Purchase/Added_to_cart)*100 , 2) as conversion_rate
 FROM product_info )
 
-SELECT ROUND(avg(conversion_rate),2) FROM cte;
-
+SELECT ROUND(avg(conversion_rate),2) as Conversion_rate FROM cte;
 
 /* Campaign Analysis */
 /* Generate a table that has 1 single row for every unique visit_id record and has the following columns:
