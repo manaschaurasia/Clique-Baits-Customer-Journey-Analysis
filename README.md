@@ -31,7 +31,7 @@ Our analysis involves a series of SQL queries designed to extract meaningful ins
 We welcome contributions from the community! If you have any ideas, improvements, or additional analyses, feel free to submit a pull request. Together, we can enhance our understanding of analytics landscape in the ecommerce industry.
 
 ## 🔗 Links
-[![project link]
+[![project link](https://img.shields.io/badge/project_link-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://www.canva.com/design/DAGHc4LHTKw/6CtYjUvCaExvhDTtTD4ypg/edit?utm_content=DAGHc4LHTKw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/manaschaurasia/)
 
