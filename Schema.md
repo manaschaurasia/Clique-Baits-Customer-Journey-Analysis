@@ -10,6 +10,7 @@ Contains information about customers who visit the Clique Bait website, tagged v
 
 
 ## Events Table
+
 Logs customer visits at a cookie_id level, including event type and page visited. The sequence_number orders the events within each visit.
 
 | Column           | Description                                                | Data Type  |
@@ -23,6 +24,7 @@ Logs customer visits at a cookie_id level, including event type and page visited
 
 
 ## Event Identifier Table
+
 Shows the types of events captured by Clique Bait’s digital data systems.
 
 | Column       | Description                                | Data Type  |
@@ -32,6 +34,7 @@ Shows the types of events captured by Clique Bait’s digital data systems.
 
 
 ## Campaign Identifier Table
+
 Provides information on the marketing campaigns run on the Clique Bait website in 2020.
 
 
@@ -45,6 +48,7 @@ Provides information on the marketing campaigns run on the Clique Bait website i
 
 
 ## Page Hierarchy Table
+
 Lists all pages on the Clique Bait website tagged for data collection through user interaction events.
 
 
@@ -54,4 +58,3 @@ Lists all pages on the Clique Bait website tagged for data collection through us
 | `page_name`       | Name of the page                             | STRING     |
 | `product_category`| Category of the product displayed on the page| STRING     |
 | `product_id`      | ID of the product displayed on the page      | INTEGER    |
-
