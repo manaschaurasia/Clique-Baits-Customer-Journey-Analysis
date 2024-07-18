@@ -6,7 +6,7 @@ Welcome to the Clique Bait Data Analytics project! This repository is dedicated 
 Clique Bait isn't just your average online seafood store. Founded by Danny, a former digital data analytics expert, Clique Bait combines the worlds of seafood and data to deliver unique insights into customer behavior and digital marketing strategies. This project supports Danny’s vision by analyzing the store's dataset and uncovering actionable insights.
 
 ## 🗂️ Available Data
-We utilize five datasets to address various questions and perform comprehensive analyses. These datasets include:
+I utilize five datasets to address various questions and perform comprehensive analyses. These datasets include:
 
 * Users Table : Contains information about customers tagged via their cookie_id.
 
@@ -19,7 +19,7 @@ We utilize five datasets to address various questions and perform comprehensive 
 * Page Hierarchy Table : Lists all the pages on the Clique Bait website along with their product categories.
 
 ## 🔍 Key Analyses
-Our analysis involves a series of SQL queries designed to extract meaningful insights from the data. Here are some key queries used in this project:
+My analysis involves a series of SQL queries designed to extract meaningful insights from the data. Here are some key queries used in this project:
 
 * Identifying funnel fallout rates.
 * Tracking customer journey from page views to purchases.
